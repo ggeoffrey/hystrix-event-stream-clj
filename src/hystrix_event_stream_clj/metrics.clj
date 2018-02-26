@@ -1,12 +1,10 @@
 (ns hystrix-event-stream-clj.metrics
-  (:import [rx Observable Observer Subscription] rx.subscriptions.Subscriptions
-           [com.netflix.hystrix Hystrix HystrixExecutable HystrixCommandMetrics HystrixThreadPoolMetrics HystrixCircuitBreaker$Factory]
-           [com.netflix.hystrix.util HystrixRollingNumberEvent])
+  (:import (rx Observable Observer Subscription)
+           rx.subscriptions.Subscriptions
+           (com.netflix.hystrix Hystrix HystrixExecutable HystrixCommandMetrics HystrixThreadPoolMetrics HystrixCircuitBreaker$Factory)
+           (com.netflix.hystrix.util HystrixRollingNumberEvent))
   (:require
-   [aleph.http               :refer :all]
-   [cheshire.core            :as json]
-   [com.netflix.hystrix.core :as hystrix]
-   [lamina.core              :refer :all]))
+   [com.netflix.hystrix.core :as hystrix]))
 
 (defn- command->metrics [^HystrixCommandMetrics cmd]
   (let [key (.getCommandKey cmd)
