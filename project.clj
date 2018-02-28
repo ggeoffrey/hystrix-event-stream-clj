@@ -1,4 +1,7 @@
 (defproject brainsfeed/hystrix-event-stream-clj "0.2.0"
+  :monolith/inherit true
+  :deployable true
+
   :description "Same as hystrix-event-streams-clj by Joseph Wilk but updated to manifold & clojure 1.9."
   :url "http://github.com/josephwilk/"
   :license {:name "Eclipse Public License"
